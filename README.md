@@ -1,6 +1,4 @@
 # AStar-Robot-Path-Planning
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
 Project Description: 
 Implement the A* search algorithm with graph search (no repeated states) for the robot path planning problem as described below. The inputs to your program are the start and goal positions of a point robot, and a 2D integer array that represents the robot workspace. The robot can move from cell to cell in any of the eight directions as shown in Figure 2. The goal is to find the lowest-cost path between the start position and the goal position, and avoiding obstacles along the path. The workspace is represented as an occupancy grid as shown in Figure 1, where the black cells represent obstacles. The red line in the figure depicts a path from the start position to the goal position.
 
@@ -10,7 +8,7 @@ $𝑐(𝑠, 𝑎, 𝑠′) = 𝑐_𝑎(𝑠, 𝑎, 𝑠′) + 𝑐_𝑑(𝑠, �
 where
 $𝑐_𝑎(𝑠, 𝑎, 𝑠′) = 𝑘 ∗\frac{\Delta \theta}{180}$; let $𝑐_𝑎(𝑠, 𝑎, 𝑠′) = 0$ if s is the initial state (start position)
 $\Delta \theta= |(\theta(𝑠′)− \theta(𝑠)|$; if $\Delta \theta > 180$, let $\Delta \theta$ equals 360− $\Delta \theta$
-$𝑐_𝑑(𝑠, 𝑎, 𝑠′)$ = 1 for horizontal and vertical moves 0, 2, 4, 6 and $\sqft{2}$ for diagonal moves 1,3, 5, 7.
+$𝑐_𝑑(𝑠, 𝑎, 𝑠′)$ = 1 for horizontal and vertical moves 0, 2, 4, 6 and $\sqrt{2}$ for diagonal moves 1,3, 5, 7.
 
 In the above, s is the current state, a is the action and s’ is the next state. The angle cost is to penalize any change in the direction of the robot between two consecutive moves. k is a constant that we can set to control the amount of penalty we want to impose for angle change. For the initial state (start position), we let the angle cost between the initial state s and next state s’ equals to 0. The distance cost is for the distance travelled in an action. Let ℎ(𝑛𝑛) be the Euclidian distance between the current position and the goal position. ℎ(𝑛𝑛) thus defined is admissible in this problem. During the search, only legal states (cells without obstacles) will be added to the tree.
 
